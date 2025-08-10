@@ -23,7 +23,7 @@ namespace TTMS.Infrastructure.Seeds
                 FullName = "Admin",
                 ConcurrencyStamp = "5b20a20f-40a0-4f82-bbf4-8c6995d4091a",
                 SecurityStamp = "ee4bfc33-f7b1-4a2f-9a97-cc0c923b0493",
-                PasswordHash = "AQAAAAIAAYagAAAAEHqH5bT8EJGLxj1qV6FmrS+bt3Is6a1Qn2G7UnFg6px0+ML6pSHn5vAWwUguo9w1BA==" 
+                PasswordHash = "AQAAAAIAAYagAAAAEPv1uwjqNLu2C9rkru6m7yllqLpPOqke5Y1sJktzmrf2LcWrYNNoNVU+JU1r89mcng==" 
             };
 
             var manager = new ApplicationUser
@@ -37,7 +37,7 @@ namespace TTMS.Infrastructure.Seeds
                 FullName = "Manager",
                 ConcurrencyStamp = "35b88d79-5b64-4f9c-a6b5-8d9bbba5bc1b",
                 SecurityStamp = "a27b30aa-6f6f-4fc0-bf8c-38cc9e7f2835",
-                PasswordHash = "AQAAAAIAAYagAAAAEH2W9Fh6s0vA7fZTFoR6oUSK7JxjX9Ybm46+dOqCjzK7Jrrshx6i9rB3JpWw92yq9Q==" 
+                PasswordHash = "AQAAAAIAAYagAAAAEPv1uwjqNLu2C9rkru6m7yllqLpPOqke5Y1sJktzmrf2LcWrYNNoNVU+JU1r89mcng==" 
             };
 
             var employee = new ApplicationUser
@@ -51,7 +51,7 @@ namespace TTMS.Infrastructure.Seeds
                 FullName = "Employee",
                 ConcurrencyStamp = "1b498b47-6d94-44f0-8f89-4b1840d26034",
                 SecurityStamp = "6c9f38b3-a1b4-4a0d-b5f6-0ee6f6a42f0a",
-                PasswordHash = "AQAAAAIAAYagAAAAEHv5mJXYb0S0XwnnO9Tnuf6SVTKRZy2U6n7cLupIYfH4UJ8uO9Y/6xq6W+3AxnZpTg==" 
+                PasswordHash = "AQAAAAIAAYagAAAAEPv1uwjqNLu2C9rkru6m7yllqLpPOqke5Y1sJktzmrf2LcWrYNNoNVU+JU1r89mcng==" 
             };
 
             return new ApplicationUser[] { admin, manager ,employee };

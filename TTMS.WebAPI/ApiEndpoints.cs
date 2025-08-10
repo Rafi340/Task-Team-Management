@@ -13,5 +13,11 @@
             public const string Delete = $"{Base}/{{id:guid}}";
 
         }
+        public static class Auth
+        {
+            private const string Base = $"{ApiBase}/auth";
+            public const string login = Base;
+
+        }
     }
 }
