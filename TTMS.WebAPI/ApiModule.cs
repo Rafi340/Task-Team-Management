@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using TTMS.Application;
 using TTMS.Infrastructure;
+using TTMS.Infrastructure.Identity;
 
 namespace TTMS.API
 {
@@ -21,6 +22,8 @@ namespace TTMS.API
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<ApplicationUnitOfWork>().As<IApplicationUnitOfWork>()
+                .InstancePerLifetimeScope();
+            builder.RegisterType<TokenService>().As<ITokenService>()
                 .InstancePerLifetimeScope();
             base.Load(builder);
         }

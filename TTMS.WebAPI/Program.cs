@@ -1,4 +1,5 @@
 using Autofac.Extensions.DependencyInjection;
+using TTMS.Infrastructure.Extensions;
 using Autofac;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -68,7 +69,6 @@ try
     });
     #endregion
 
-
     #region ApiVersion
     builder.Services.AddApiVersioning(x =>
     {
@@ -77,6 +77,10 @@ try
         x.ReportApiVersions = true;
         x.ApiVersionReader = new MediaTypeApiVersionReader("api-version");
     }).AddApiExplorer();
+    #endregion
+
+    #region Identity Configuration
+    builder.Services.AddIdentity();
     #endregion
 
     builder.Services.AddControllers();

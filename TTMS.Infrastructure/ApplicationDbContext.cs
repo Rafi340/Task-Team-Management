@@ -6,10 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TTMS.Domain.Entities;
+using TTMS.Infrastructure.Identity;
 
 namespace TTMS.Infrastructure
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
+        ApplicationRole, Guid,
+        ApplicationUserClaim, ApplicationUserRole,
+        ApplicationUserLogin, ApplicationRoleClaim,
+        ApplicationUserToken>
     {
         private readonly string _connectionString;
         private readonly string _migrationAssembly;
