@@ -6,11 +6,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using TTMS.Domain.Repository;
 using System.Linq.Dynamic.Core;
 using TTMS.Domain;
+using TTMS.Domain.Repositories;
 
-namespace TTMS.Infrastructure.Repository
+namespace TTMS.Infrastructure.Repositories
 {
     public abstract class Repository<TEntity, TKey> :
        IRepository<TEntity, TKey> where TKey : IComparable

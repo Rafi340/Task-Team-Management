@@ -1,7 +1,11 @@
 ﻿using Autofac;
+using FluentValidation;
 using TTMS.Application;
+using TTMS.Application.Validator;
+using TTMS.Domain.Repositories;
 using TTMS.Infrastructure;
 using TTMS.Infrastructure.Identity;
+using TTMS.Infrastructure.Repositories;
 
 namespace TTMS.API
 {
@@ -23,6 +27,11 @@ namespace TTMS.API
 
             builder.RegisterType<ApplicationUnitOfWork>().As<IApplicationUnitOfWork>()
                 .InstancePerLifetimeScope();
+            builder.RegisterType<TeamRepository>().As<ITeamRepository>()
+                .InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(typeof(TeamValidator).Assembly)
+            .AsClosedTypesOf(typeof(IValidator<>))
+            .InstancePerLifetimeScope();
             builder.RegisterType<TokenService>().As<ITokenService>()
                 .InstancePerLifetimeScope();
             base.Load(builder);

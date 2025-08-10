@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TTMS.Domain.Repository
+namespace TTMS.Domain.Repositories
 {
     public interface IRepository<TEntity, TKey> where TEntity : IEntity<TKey>
     {

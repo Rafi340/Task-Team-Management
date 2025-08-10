@@ -13,6 +13,8 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using TTMS.WebAPI.Swagger;
 using TTMS.WebAPI.Endpoints;
 using Asp.Versioning;
+using TTMS.Application.Features.Teams.Commands;
+using TTMS.WebAPI.Mapping;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -66,6 +68,7 @@ try
     #region MediatR Configuration
     builder.Services.AddMediatR(cfg => {
         cfg.RegisterServicesFromAssembly(migrationAssembly);
+        cfg.RegisterServicesFromAssembly(typeof(TeamAddCommand).Assembly);
     });
     #endregion
 
@@ -109,6 +112,7 @@ try
 
     app.UseAuthorization();
 
+    app.UseMiddleware<ValidationMappingMiddleware>();
     app.MapControllers();
 
     app.Run();
