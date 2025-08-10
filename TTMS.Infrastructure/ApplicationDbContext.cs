@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TTMS.Domain.Entities;
 using TTMS.Infrastructure.Identity;
+using TTMS.Infrastructure.Seeds;
 
 namespace TTMS.Infrastructure
 {
@@ -32,13 +33,19 @@ namespace TTMS.Infrastructure
             }
             base.OnConfiguring(optionsBuilder);
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Team>()
+            builder.Entity<Team>()
                 .HasMany(x => x.Tasks)
                 .WithOne(x => x.Team)
                 .HasForeignKey(x => x.TeamId);
+
+            builder.Entity<ApplicationRole>().HasData(RoleSeed.GetRoles());
+
+            builder.Entity<ApplicationUser>().HasData(UserSeed.GetUsers());
+
+            builder.Entity<ApplicationUserRole>().HasData(UserRoleSeed.GetUserRoles());
+            base.OnModelCreating(builder);
         }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Tasks> Tasks { get; set; }
