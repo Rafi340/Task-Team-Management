@@ -15,6 +15,7 @@ namespace TTMS.Infrastructure.Identity
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var securityKey = Encoding.ASCII.GetBytes(key);
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims.ToArray()),

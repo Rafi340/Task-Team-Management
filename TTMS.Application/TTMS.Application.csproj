@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Tasks\Queries\" />
-    <Folder Include="Features\Teams\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

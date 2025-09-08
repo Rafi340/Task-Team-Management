@@ -22,13 +22,13 @@ namespace TTMS.WebAPI.Controllers
         [HttpPost(ApiEndpoints.Teams.Create)]
         [ProducesResponseType(typeof(Team), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ValidationFailureResponse), StatusCodes.Status400BadRequest)]
+        [Authorize]
         public async Task<IActionResult> Create([FromBody] TeamAddCommand request)
         {
             try
             {
                 var reponse = await _mediator.Send(request);
                 return Ok(reponse);
-
             }
             catch (Exception ex)
             {
